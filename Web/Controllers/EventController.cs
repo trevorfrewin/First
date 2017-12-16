@@ -9,13 +9,13 @@
     using Web.Models;
 
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class EventController : Controller
     {
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            var sampleDocument = new SampleDocument { Id = Guid.NewGuid(), Property = string.Format("Current time: '{0}'", DateTime.UtcNow.ToString("o")) };
+            var sampleDocument = new VehicleEvent { Id = Guid.NewGuid(), When = DateTime.UtcNow, VIN = "4ZJSD7M23IG210000" };
 
             var documentStore = new DocumentStore();
             documentStore.Command(sampleDocument);
